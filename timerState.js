@@ -32,6 +32,8 @@ class TimerState {
   }
 
   lap() {
+    if (!this.intervalId) return;
+
     this.lapNumber++;
 
     const lapTime = this.secondsElapsed - this.lastLapTime;
