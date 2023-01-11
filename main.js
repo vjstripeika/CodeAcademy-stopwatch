@@ -1,4 +1,5 @@
 import timerState from "./state.js";
+import { formatTime } from "./utils.js";
 
 const elements = {
   startButton: document.querySelector("#btn-start"),
@@ -11,7 +12,9 @@ function updateTimerText(secondsElapsed) {
   const minutes = Math.floor(secondsElapsed / 60) % 60;
   const hours = Math.floor(Math.floor(secondsElapsed / 60) / 60);
 
-  elements.timerBox.textContent = `${hours}:${minutes}:${seconds}`;
+  elements.timerBox.textContent = `${formatTime(hours)}:${formatTime(
+    minutes
+  )}:${formatTime(seconds)}`;
 }
 
 elements.startButton.addEventListener("click", function () {
