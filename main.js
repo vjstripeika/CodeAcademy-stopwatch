@@ -1,63 +1,62 @@
 import TimerState from "./timerState.js";
+import TimerView from "./timerView.js";
 import { formatTime, calculateTime } from "./utils.js";
 
-const elements = {
-  startButton: document.querySelector("#btn-start"),
-  stopButton: document.querySelector("#btn-stop"),
-  resetButton: document.querySelector("#btn-reset"),
-  lapButton: document.querySelector("#btn-lap"),
-  timerBox: document.querySelector("#timer"),
-  lapContainer: document.querySelector("#lap-container"),
-};
+const timerContainer = document.querySelector("#timer-container");
+const addTimerButton = document.querySelector("#btn-add-timer");
 
-const updateTimerText = (secondsElapsed) => {
-  const { hours, minutes, seconds } = calculateTime(secondsElapsed);
+addTimerButton.addEventListener("click", () => {
+  const timerView = new TimerView(timerContainer);
 
-  elements.timerBox.textContent = `${formatTime(hours)}:${formatTime(
-    minutes
-  )}:${formatTime(seconds)}`;
-};
+  const updateTimerText = (secondsElapsed) => {
+    const { hours, minutes, seconds } = calculateTime(secondsElapsed);
 
-const createLap = (lapNumber, lapTime) => {
-  const { hours, minutes, seconds } = calculateTime(lapTime);
+    timerView.timerBox.textContent = `${formatTime(hours)}:${formatTime(
+      minutes
+    )}:${formatTime(seconds)}`;
+  };
 
-  const lapItemEl = document.createElement("div");
-  lapItemEl.className = "lap-log";
+  const createLap = (lapNumber, lapTime) => {
+    const { hours, minutes, seconds } = calculateTime(lapTime);
 
-  const lapNumberEl = document.createElement("span");
-  lapNumberEl.textContent = `${lapNumber} Lap`;
+    const lapItemEl = document.createElement("div");
+    lapItemEl.className = "lap-log";
 
-  const lapTimeEl = document.createElement("span");
-  lapTimeEl.textContent = `${formatTime(hours)}:${formatTime(
-    minutes
-  )}:${formatTime(seconds)}`;
+    const lapNumberEl = document.createElement("span");
+    lapNumberEl.textContent = `${lapNumber} Lap`;
 
-  lapItemEl.append(lapNumberEl, lapTimeEl);
-  elements.lapContainer.append(lapItemEl);
-};
+    const lapTimeEl = document.createElement("span");
+    lapTimeEl.textContent = `${formatTime(hours)}:${formatTime(
+      minutes
+    )}:${formatTime(seconds)}`;
 
-const clearLaps = () => {
-  elements.lapContainer.innerHTML = "";
-};
+    lapItemEl.append(lapNumberEl, lapTimeEl);
+    timerView.lapContainer.append(lapItemEl);
+  };
 
-const timerState = new TimerState({
-  updateTime: updateTimerText,
-  setLap: createLap,
-  clearLaps: clearLaps,
-});
+  const clearLaps = () => {
+    timerView.lapContainer.innerHTML = "";
+  };
 
-elements.startButton.addEventListener("click", () => {
-  timerState.start();
-});
+  const timerState = new TimerState({
+    updateTime: updateTimerText,
+    setLap: createLap,
+    clearLaps: clearLaps,
+  });
 
-elements.stopButton.addEventListener("click", () => {
-  timerState.stop();
-});
+  timerView.startButton.addEventListener("click", () => {
+    timerState.start();
+  });
 
-elements.resetButton.addEventListener("click", () => {
-  timerState.reset();
-});
+  timerView.stopButton.addEventListener("click", () => {
+    timerState.stop();
+  });
 
-elements.lapButton.addEventListener("click", () => {
-  timerState.lap();
+  timerView.resetButton.addEventListener("click", () => {
+    timerState.reset();
+  });
+
+  timerView.lapButton.addEventListener("click", () => {
+    timerState.lap();
+  });
 });
