@@ -1,0 +1,72 @@
+Sukurti dvi klases:
+ - Knyga (Book)
+ - Biblioteka (Library)
+
+Klasės aprašymai:
+
+Knyga turi savybes: pavadinimas (string), autorius (string), puslapiu skaicius (number), metai (number), leidykla (string).
+
+Biblioteka turi savybes: pavadinimas (string), adresas (string), knygos (array).
+
+Biblioteka turi metodus:
+ - addBook(book) - prideda knyga i bibliotekos knygu sarasa
+
+ - removeBook(book) - istrina knyga is bibliotekos knygu saraso
+
+ - bookCount() - grazina bibliotekos knygu skaiciu
+
+ - bookList() - grazina bibliotekos knygu sarasa
+
+ - bookListByAuthor(author) - grazina bibliotekos knygu sarasa (array) pagal autoriu
+    /*
+     *
+     * Sufleris:
+     * for (let book in this.bookList) {
+     *    if (book.author === author) {
+     *        // ...sprendimas cia...
+     *    }
+     * }
+     *
+     */
+
+ - bookListByPublisher(publisher) - grazina bibliotekos knygu sarasa pagal leidykla
+    Identiskas sprendimas kaip ir bookListByAuthor(author)
+
+ - bookListByYear(year) - grazina bibliotekos knygu sarasa pagal metus
+    Identiskas sprendimas kaip ir bookListByAuthor(author)
+
+ - bookListWithPagesGreaterThan(pageCount) - grazina bibliotekos knygu sarasa su puslapiu skaiciumi didesniu uz pageCount
+
+ - bookListWithPagesLessThan(pageCount) - grazina bibliotekos knygu sarasa su puslapiu skaiciumi mazesniu uz pageCount
+
+Sukūrus klases sukurkite knygas:
+
+const hemingway = new Book('For Whom the Bell Tolls', 'Ernest Hemingway', 350, 1940, 'Charles Scribner\'s Sons');
+const tolkien = new Book('The Lord of the Rings', 'J. R. R. Tolkien', 1216, 1954, 'Allen & Unwin');
+const tolkien2 = new Book('The Hobbit', 'J. R. R. Tolkien', 310, 1937, 'Allen & Unwin');
+const tolkien3 = new Book('The Silmarillion', 'J. R. R. Tolkien', 400, 1977, 'Allen & Unwin');
+const orwell = new Book('1984', 'George Orwell', 328, 1949, 'Secker & Warburg');
+const orwell2 = new Book('Animal Farm', 'George Orwell', 112, 1945, 'Secker & Warburg');
+const remarque = new Book('All Quiet on the Western Front', 'Erich Maria Remarque', 352, 1929, 'Harcourt, Brace and Company');
+const remarque2 = new Book('Three Comrades', 'Erich Maria Remarque', 320, 1936, 'Harcourt, Brace and Company');
+const remarque3 = new Book('Arch of Triumph', 'Erich Maria Remarque', 320, 1945, 'Harcourt, Brace and Company');
+const remarque4 = new Book('The Road Back', 'Erich Maria Remarque', 320, 1954, 'Harcourt, Brace and Company');
+const herbert = new Book('Dune', 'Frank Herbert', 604, 1965, 'Chilton Books');
+const herbert2 = new Book('Dune Messiah', 'Frank Herbert', 512, 1969, 'Chilton Books');
+const herbert3 = new Book('Children of Dune', 'Frank Herbert', 512, 1976, 'Chilton Books');
+const herbert4 = new Book('God Emperor of Dune', 'Frank Herbert', 512, 1981, 'Chilton Books');
+
+Sukurkite biblioteką:
+
+const library = new Library('Biblioteka', 'Vilnius');
+
+ir į ją įdėkite knygas.
+
+Išbandykite bibliotekos metodus:
+
+console.log(library.bookCount()); // 14
+console.log(library.bookList()); // grazina visu knygu sarasa
+console.log(library.bookListByAuthor('J. R. R. Tolkien')); // grazina tolkien knygu sarasa
+console.log(library.bookListByPublisher('Allen & Unwin')); // grazina tolkien knygu sarasa
+console.log(library.bookListByYear(1949)); // grazina orwell knygu sarasa
+console.log(library.bookListWithPagesGreaterThan(500)); // grazina herbert knygu sarasa

@@ -1,0 +1,78 @@
+Sukurkime tris klases: produktai, krepselio produktai ir krepselis.
+
+Produktas turi savybes: id (number), pavadinimas (name), kaina (price), nuotraukos url (imagUrl), aprasymas(description) ir likutis(stock).
+ - id turi buti random sugeneruotas, kiekvienam produktui unikalus skaicius.
+    - šiam pratimui sukurkime produktus su id nuo 1 iki n. 
+
+Krepselio produktas turi savybes: pavadinimas(name), kaina(price), nuotraukos url(imageUrl), aprasymas(description), kiekis(quantity) ir visa suma (totalPrice).
+SVARBU!: likutis ir kiekis nėra tie patys atributai!
+    Krepselio produktas turi paveldimuma (extends) is produktu klases.
+    Krepselio produktas konstruktoriuje priima produkta (klase) ir kieki. new CartProduct(product, quantity)
+        jei kiekis yra didesnis uz produkto likuti, tai kiekis turi buti lygus produkto likuciui.
+
+    Krepselio produktas turi du metodus:
+    1. didinti kieki (kiekis++)
+        - jis turi atnaujinti ir visa suma (totalPrice)
+    2. mažtinti kieki (kiekis--)
+        - jis turi atnaujinti ir visa suma (totalPrice)
+    3. nustatyti kieki (kiekis = number)
+        - jis turi atnaujinti ir visa suma (totalPrice)
+
+
+Krepselis turi savybes: krepselio produktus (cart products - array), bendra krepselio suma (totalCartPrice) ir bendra kiekis (totalCartQuantity).
+
+Krepselis turi metodus:
+1. prideti produktus i krepseli (addProduct)
+    - jei krepselio produkto kiekis lygus 0, tai i krepseli preke neprisideda
+    - jei krepselyje jau yra toks produktas, tai turi didinti jo kieki
+    - atnaujinti bendra krepselio suma (totalCartPrice)
+    - atnaujinti bendra kieki (totalCartQuantity)
+2. pasalinti produktus is krepselio (removeProduct)
+    - jei krepselyje yra toks produktas, tai turi mazinti jo kieki
+    - jei krepselyje yra toks produktas ir jo kiekis yra 0, tai turi pasalinti produktas is krepselio
+      - atnaujinti bendra krepselio suma (totalCartPrice)
+    - atnaujinti bendra kieki (totalCartQuantity)
+3. pirkti produktus (buyProducts)
+    - console.log visus produktus
+    - console.log bendra krepselio suma (totalCartPrice)
+    - console.log bendra kieki (totalCartQuantity)
+    - turi pasalinti visus produktus is krepselio
+    - atnaujinti bendra krepselio suma (totalCartPrice)
+    - atnaujinti bendra kieki (totalCartQuantity)
+
+Produktu pavyzdiai su duomenimis:
+
+const products = [
+    {
+        id: 1,
+        name: 'Product 1',
+        price: 100,
+        imageUrl: 'https://picsum.photos/200/300',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nisl nunc vel nisl. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nisl nunc vel nisl.',
+        stock: 10
+    },
+    {
+        id: 2,
+        name: 'Product 2',
+        price: 200,
+        imageUrl: 'https://picsum.photos/200/300',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nisl nunc vel nisl. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nisl nunc vel nisl.',
+        stock: 20
+    },
+    {
+        id: 3,
+        name: 'Product 3',
+        price: 300,
+        imageUrl: 'https://picsum.photos/200/300',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nisl nunc vel nisl. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nisl nunc vel nisl.',
+        stock: 30
+    },
+    {
+        id: 4,
+        name: 'Product 4',
+        price: 400,
+        imageUrl: 'https://picsum.photos/200/300',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nisl nunc vel nisl. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nisl nunc vel nisl.',
+        stock: 40
+    },
+];
