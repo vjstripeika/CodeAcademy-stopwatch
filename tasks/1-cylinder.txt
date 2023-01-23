@@ -1,6 +1,6 @@
 Sukurti klasę pavadinimu "Cylinder"
  - Ji turi turėti 2 atributus, kuriuos gauna konstruktoriuje: "height" ir "radius"
  - Ji turi turėti 2 metodus: "getVolume" ir "getSurfaceArea"
-    - "getVolume" metodas turi grąžinti cilindro tūrio turį. Formulė: "pi * radius * radius * height"
+    - "getVolume" metodas turi grąžinti cilindro turį. Formulė: "pi * radius * radius * height"
     - "getSurfaceArea" metodas turi grąžinti cilindro paviršiaus plotą. Formulė: "2 * pi * radius * (radius + height)"
 

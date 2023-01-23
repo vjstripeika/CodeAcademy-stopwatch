@@ -11,7 +11,7 @@ Biblioteka turi savybes: pavadinimas (string), adresas (string), knygos (array).
 Biblioteka turi metodus:
  - addBook(book) - prideda knyga i bibliotekos knygu sarasa
 
- - removeBook(book) - istrina knyga is bibliotekos knygu saraso
+ - removeBook(book) - istrina knyga is bibliotekos knygu saraso (jei nezinote kaip daryti - praleiskite)
 
  - bookCount() - grazina bibliotekos knygu skaiciu
 

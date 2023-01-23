@@ -18,6 +18,7 @@ class Admin extends Person {
     console.log("admin", this.name);
     this.email = email;
   }
+
   greet() {
     console.log("Sir, my name is " + this.name);
   }
