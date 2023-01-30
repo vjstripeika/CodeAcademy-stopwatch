@@ -10,7 +10,7 @@ SVARBU!: likutis ir kiekis nėra tie patys atributai!
     Krepselio produktas konstruktoriuje priima produkta (klase) ir kieki. new CartProduct(product, quantity)
         jei kiekis yra didesnis uz produkto likuti, tai kiekis turi buti lygus produkto likuciui.
 
-    Krepselio produktas turi du metodus:
+    Krepselio produktas turi tris metodus:
     1. didinti kieki (kiekis++)
         - jis turi atnaujinti ir visa suma (totalPrice)
     2. mažtinti kieki (kiekis--)
@@ -30,7 +30,7 @@ Krepselis turi metodus:
 2. pasalinti produktus is krepselio (removeProduct)
     - jei krepselyje yra toks produktas, tai turi mazinti jo kieki
     - jei krepselyje yra toks produktas ir jo kiekis yra 0, tai turi pasalinti produktas is krepselio
-      - atnaujinti bendra krepselio suma (totalCartPrice)
+    - atnaujinti bendra krepselio suma (totalCartPrice)
     - atnaujinti bendra kieki (totalCartQuantity)
 3. pirkti produktus (buyProducts)
     - console.log visus produktus

@@ -21,7 +21,7 @@ Biblioteka turi metodus:
     /*
      *
      * Sufleris:
-     * for (let book in this.bookList) {
+     * for (let book of this.bookList) {
      *    if (book.author === author) {
      *        // ...sprendimas cia...
      *    }
